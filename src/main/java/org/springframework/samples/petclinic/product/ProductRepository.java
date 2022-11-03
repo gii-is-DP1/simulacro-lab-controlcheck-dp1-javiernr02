@@ -4,13 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 
-
-public interface ProductRepository {
-    List<Product> findAll();
-    List<ProductType> findAllProductTypes();
-    Optional<Product> findById(int id);
-    Product findByName(String name);
-    Product save(Product p);
+@Repository
+public interface ProductRepository extends CrudRepository<Product, Integer> {
+    
+    public List<Product> findAll();
+    public List<ProductType> findAllProductTypes();
+    public Optional<Product> findById(int id);
+    public Product findByName(String name);
+    public Product save(Product p);
 }
